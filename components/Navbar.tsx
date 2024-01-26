@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 export default function Navbar() {
   const [expanded, setExpanded] = useState(false);
+  const pathname = usePathname();
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
@@ -74,7 +76,11 @@ export default function Navbar() {
                   key={i}
                   href={item.path}
                   title={item.name}
-                  className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+                  className={`text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 ${
+                    pathname === item.path
+                      ? "bg-slate-800 text-white py-2.5 px-4 rounded-md"
+                      : ""
+                  } `}
                 >
                   {item.name}
                 </Link>
@@ -86,7 +92,7 @@ export default function Navbar() {
             <a
               href="https://www.youtube.com/c/JBWEBDEVELOPER"
               title="Subscribe to JB WEB DEVELOPER"
-              className="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+              className="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-7 text-white transition-all duration-200 bg-red-900 border border-transparent rounded hover:bg-red-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-900"
               role="button"
             >
               SUBSCRIBE
@@ -113,7 +119,7 @@ export default function Navbar() {
               <a
                 href="https://www.youtube.com/c/JBWEBDEVELOPER"
                 title="Subscribe to JB WEB DEVELOPER"
-                className="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                className="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-7 text-white transition-all duration-200 bg-red-900 border border-transparent rounded hover:bg-red-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-900"
                 role="button"
               >
                 Subscribe

@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import { ourFileRouter } from "./api/uploadthing/core";
+import { EdgeStoreProvider } from "@/utils/edgestore";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <main className="bg-gray-50 min-h-screen">{children}</main>
+        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+        <EdgeStoreProvider>
+          <Navbar />
+          <main className="bg-gray-50 min-h-screen p-8">{children}</main>
+        </EdgeStoreProvider>
       </body>
     </html>
   );

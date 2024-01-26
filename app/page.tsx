@@ -15,8 +15,8 @@ export default function Home() {
           </p>
 
           <p className="mt-8 text-base text-gray-500 font-inter">
-            Explore UploadThing, Filestack, EdgeStore, and Cloudinary for
-            Seamless Image Handling in Your Next Fullstack NexJ Application
+            Explore UploadThing, EdgeStore, and Cloudinary for Seamless Image
+            Handling in Your Next Fullstack NexJ Application
           </p>
         </div>
       </div>

@@ -21,10 +21,6 @@ export default function Navbar() {
       name: "Cloudinary",
       path: "/cloudinary",
     },
-    {
-      name: "FileStack",
-      path: "/filestack",
-    },
   ];
   return (
     <header className="py-4 bg-white">
